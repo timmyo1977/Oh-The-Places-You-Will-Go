@@ -220,6 +220,74 @@
       line-height: 1.4;
     }
 
+    .colleagues {
+      background: var(--parchment);
+      border-top: 3px double var(--rule);
+      border-bottom: 3px double var(--rule);
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .colleagues .colleagues-label {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .colleagues h3 {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 2.6rem;
+      color: var(--warm-dark);
+      margin-bottom: 0.2rem;
+    }
+    .colleagues .colleagues-sub {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      color: var(--stone);
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    .colleagues-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 2rem;
+    }
+    .roster {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem 2.5rem;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    @media (max-width: 600px) {
+      .roster { grid-template-columns: 1fr; gap: 0.7rem; }
+    }
+    .roster li {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--warm-dark);
+      letter-spacing: 0.02em;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid transparent;
+    }
+    .roster li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-right: 0.9rem;
+      vertical-align: middle;
+      opacity: 0.7;
+    }
+
     .back-link {
       display: inline-block;
       font-family: 'EB Garamond', serif;
@@ -327,6 +395,27 @@
       <h2>Children's Hospital</h2>
       <p>A position at Children's Hospital of Pittsburgh was, by any reasonable measure, a wonderful first job. The institution was — and remains — one of the leading pediatric hospitals in the country. The work mattered. The colleagues were excellent. The cases were complicated in the way pediatric cases always are: weight-based dosing, pharmacokinetics in tiny patients whose renal and hepatic systems were still developing, narrow margins of error. I learned a great deal, and quickly.</p>
       <p>For a while, it was enough. More than enough. I was proud to put on the white coat and walk the halls of a place where the work of the day was, quite literally, saving children. That is not a sentence I write lightly, and it is not a year of my life I want to diminish by what came after.</p>
+
+      <p>A hospital pharmacy is a small, close world. You stand shoulder to shoulder through long shifts, you double-check each other on the doses that cannot be wrong, and you learn very quickly who is good at their job and who is good to work with — and how rare it is to find people who are both. I was fortunate to work alongside a group of colleagues at Children's who were, to a person, both. I have never forgotten them, and forty years on I still hear their voices in the back of my head when a hard decision lands on my desk.</p>
+
+      <div class="colleagues">
+        <p class="colleagues-label">In Gratitude</p>
+        <h3>The Pharmacy at Children's</h3>
+        <p class="colleagues-sub">Colleagues who shaped a young pharmacist</p>
+        <div class="colleagues-rule"></div>
+        <ul class="roster">
+          <li>Joey &amp; Mickey Mazzotta <span style="display:block; font-family:'EB Garamond',serif; font-style:italic; font-size:1.4rem; color:var(--stone); letter-spacing:0.04em; margin-left:1.5rem;">husband and wife</span></li>
+          <li>Ray Stolz</li>
+          <li>Becky Hursen</li>
+          <li>Lenora Ledford</li>
+          <li>Pat Sing</li>
+          <li>Howard Mitchell</li>
+          <li>Richard Ferguson</li>
+          <li>Jan Wunderlick</li>
+          <li>Paul Hoffman</li>
+          <li>Eva Sudol</li>
+        </ul>
+      </div>
 
       <div class="pull-quote">
         <p>"The decisions had already been made by the time the prescription reached my hands."</p>
