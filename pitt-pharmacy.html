@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pitt Pharmacy &middot; Dispatches from the Road</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:        #1a1410;
+      --warm-dark:  #2c2318;
+      --parchment:  #f5f0e8;
+      --cream:      #faf7f2;
+      --gold:       #b8963e;
+      --gold-light: #d4b06a;
+      --sienna:     #8b3a2a;
+      --stone:      #9e9080;
+      --rule:       #c9b99a;
+      --pitt-blue:  #003594;
+      --pitt-gold:  #FFB81C;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 27px;
+      line-height: 1.75;
+    }
+    .masthead {
+      background: var(--warm-dark);
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+      border-bottom: 3px solid var(--gold);
+    }
+    .masthead::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: var(--gold-light);
+      width: 60%;
+      margin: 0.6rem auto 0;
+      opacity: 0.4;
+    }
+    .site-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(3.2rem, 8vw, 5.6rem);
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .site-subtitle {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      color: var(--rule);
+      font-size: 2rem;
+      margin-top: 0.4rem;
+      letter-spacing: 0.12em;
+    }
+    nav {
+      background: var(--parchment);
+      border-bottom: 2px solid var(--rule);
+      text-align: center;
+      padding: 0.75rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    nav a {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm-dark);
+      text-decoration: none;
+      margin: 0 1.2rem;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover { color: var(--sienna); border-bottom-color: var(--sienna); }
+
+    .page-hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+    .page-eyebrow {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.4rem, 6vw, 5.6rem);
+      line-height: 1.15;
+      color: var(--warm-dark);
+      margin-bottom: 1rem;
+    }
+    .page-title em { font-style: italic; color: var(--sienna); }
+    .page-rule {
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.4rem auto 2rem;
+    }
+    .page-dek {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1.9rem;
+      color: #3a302a;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .pitt-crest-band {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem 1rem 3rem;
+    }
+    .pitt-crest {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+    }
+    .pitt-crest-caption {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      color: var(--stone);
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+    }
+
+    .essay-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+    .essay-section-label {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .essay-chapter {
+      margin-bottom: 3.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .essay-chapter:last-of-type {
+      border-bottom: none;
+    }
+    .essay-chapter h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--sienna);
+      font-style: italic;
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.02em;
+    }
+    .essay-chapter p {
+      margin-bottom: 1.3rem;
+      color: var(--ink);
+    }
+    .essay-chapter p:last-child { margin-bottom: 0; }
+    .essay-chapter em { color: var(--sienna); }
+
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.8rem;
+      margin: 2.5rem 0;
+      background: var(--parchment);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 2rem;
+      line-height: 1.5;
+      color: var(--warm-dark);
+      margin: 0;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      background: var(--parchment);
+      padding: 2.5rem 2rem;
+      border-top: 3px double var(--rule);
+      border-bottom: 3px double var(--rule);
+      margin: 3rem 0;
+    }
+    @media (max-width: 700px) {
+      .facts-grid { grid-template-columns: 1fr; }
+    }
+    .fact-item .fact-label {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .fact-item .fact-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--warm-dark);
+      line-height: 1.4;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      margin-top: 2rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-link:hover { color: var(--sienna); border-bottom-color: var(--sienna); }
+
+    footer {
+      background: var(--warm-dark);
+      color: var(--rule);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+    footer span {
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--gold-light);
+      letter-spacing: 0.12em;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="site-title">Dispatches from the Road</div>
+    <div class="site-subtitle">A Traveller's Portfolio &nbsp;&middot;&nbsp; Tim O'Brien</div>
+  </header>
+
+  <nav>
+    <a href="index.html#story">The Story</a>
+    <a href="index.html#history">History</a>
+    <a href="index.html#journeys">Journeys</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-eyebrow">University of Pittsburgh &nbsp;&middot;&nbsp; School of Pharmacy</p>
+    <h1 class="page-title">Pitt <em>Pharmacy</em></h1>
+    <div class="page-rule"></div>
+    <p class="page-dek">The first credential, the first city, and the first growing sense that I had not yet found the room where the real decisions were made.</p>
+  </div>
+
+  <div class="pitt-crest-band">
+    <img class="pitt-crest"
+         src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Pittsburgh_Panthers_logo.svg/800px-Pittsburgh_Panthers_logo.svg.png"
+         alt="University of Pittsburgh"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="120" height="120" style="display:none;">
+      <circle cx="50" cy="50" r="48" fill="#003594" stroke="#FFB81C" stroke-width="4"/>
+      <text x="50" y="38" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="11" fill="#FFB81C" letter-spacing="1">UNIV. OF</text>
+      <text x="50" y="53" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="11" fill="#FFB81C" letter-spacing="1">PITTSBURGH</text>
+      <text x="50" y="70" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#FFB81C" letter-spacing="1">EST. 1787</text>
+    </svg>
+    <span class="pitt-crest-caption">Hail to Pitt</span>
+  </div>
+
+  <div class="essay-wrap">
+
+    <p class="essay-section-label">A Life in Full &nbsp;&middot;&nbsp; Chapter Two</p>
+
+    <div class="facts-grid">
+      <div class="fact-item">
+        <span class="fact-label">Institution</span>
+        <span class="fact-value">University of Pittsburgh<br/>School of Pharmacy</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Degree</span>
+        <span class="fact-value">Bachelor of Science in Pharmacy</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Distinction</span>
+        <span class="fact-value">Graduated at the top of class</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">First Post</span>
+        <span class="fact-value">Children's Hospital of Pittsburgh</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">The Mentor</span>
+        <span class="fact-value">Thomas Gertison<br/><em style="font-size:1.5rem; color:var(--stone);">Professor of Chemistry</em></span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">What Came Next</span>
+        <span class="fact-value">Jefferson Medical College</span>
+      </div>
+    </div>
+
+    <div class="essay-chapter">
+      <h2>Arriving in Pittsburgh</h2>
+      <p>Pittsburgh in those years was a city still re-making itself. The mills had begun their long retreat. The universities and hospitals that would come to define the modern economy of the place — Pitt, Carnegie Mellon, UPMC, Children's — were rising into the space the steel had left behind. For a young man from Bradford, coming down out of the oil country and through the Allegheny hills, the city felt enormous. It was the first time I had lived anywhere that had a skyline.</p>
+      <p>The School of Pharmacy gave me, almost immediately, something I had not expected: the realization that I could hold my own. The coursework at Pitt was serious — pharmacology, medicinal chemistry, pharmaceutics, therapeutics — and I found that the chemistry instinct Richard Ambrose had first awakened in me back in Bradford was real. It carried me. I worked hard, because I had grown up in a family where working hard was simply what you did, but the material genuinely interested me, and that made everything easier.</p>
+      <p>I graduated at the top of my class. I say that plainly because it mattered. It was the first external confirmation — the first report card from a serious institution — that the kid from Bradford could actually do this.</p>
+    </div>
+
+    <div class="essay-chapter">
+      <h2>Children's Hospital</h2>
+      <p>A position at Children's Hospital of Pittsburgh was, by any reasonable measure, a wonderful first job. The institution was — and remains — one of the leading pediatric hospitals in the country. The work mattered. The colleagues were excellent. The cases were complicated in the way pediatric cases always are: weight-based dosing, pharmacokinetics in tiny patients whose renal and hepatic systems were still developing, narrow margins of error. I learned a great deal, and quickly.</p>
+      <p>For a while, it was enough. More than enough. I was proud to put on the white coat and walk the halls of a place where the work of the day was, quite literally, saving children. That is not a sentence I write lightly, and it is not a year of my life I want to diminish by what came after.</p>
+
+      <div class="pull-quote">
+        <p>"The decisions had already been made by the time the prescription reached my hands."</p>
+      </div>
+
+      <p>But something began to nag. Quietly at first, and then louder. It was not dissatisfaction with the profession so much as a dawning recognition of my own position within it. I was executing, competently and carefully, on decisions that had been made in a room I was not in. The diagnosis, the differential, the treatment plan — all of that had already happened upstream. By the time the order reached the pharmacy, the clinical judgment of the day was already settled.</p>
+      <p>I wanted to be in that room.</p>
+    </div>
+
+    <div class="essay-chapter">
+      <h2>Thomas Gertison</h2>
+      <p>During my time at Pitt, a chemistry professor named Thomas Gertison had taken an interest. He had watched me in the laboratory and in the seminar and had formed an opinion about me before I had fully formed one about myself. At some point — I remember the conversation but not the exact date — he said something close to: <em>You should push further. This is not the end of what you can do.</em></p>
+      <p>People who have seen a lot of students do not say that often. When they do, and when they say it to you, you carry it. I carried it through the months of growing restlessness at Children's, and I carried it into the decision — which, looking back, had been forming for longer than I had admitted — to apply to medical school.</p>
+      <p>A chemistry teacher in Bradford pointed me toward a career. A chemistry professor in Pittsburgh pointed me toward the one beyond it. I do not think that is coincidence. I think it means something that the people who saw me most clearly, at the moments that mattered most, were the people who taught me to pay attention to the physical world.</p>
+    </div>
+
+    <div class="essay-chapter">
+      <h2>The Decision to Leave</h2>
+      <p>Walking away from a good job in a serious institution, at the age when most people are settling into careers rather than restarting them, was not obvious. I had a credential. I had a salary. I had a trajectory that any reasonable advisor would have told me to protect. Going back to being a student — a pre-medical student, competing for a seat in a medical school class against twenty-two-year-olds who had been pointed at medicine their whole lives — was, from the outside, a strange thing to choose.</p>
+      <p>But I knew, with the kind of certainty that is hard to argue with once it arrives, that I would spend the rest of my working life wondering what was behind that door if I did not at least try to open it. Pharmacy had given me a foundation I would draw on for the rest of my career — an understanding of drug mechanisms and interactions that most physicians do not have — and it had given me the confidence that I could compete academically at a high level. But it had also shown me the shape of my own ambition, which was larger than the role the profession could give me.</p>
+      <p>So I applied. And Jefferson Medical College, in Philadelphia, said yes.</p>
+    </div>
+
+    <div class="essay-chapter">
+      <h2>What Pitt Gave Me</h2>
+      <p>I have been, in the decades since, a physician and a surgeon. The pharmacy degree is not the credential on my office wall. But it is in everything I do. Every time I write a prescription, I write it with a pharmacist's eye — for interactions, for renal dose adjustments, for the particular dangers of polypharmacy in older patients, for the difference between what is on the formulary and what actually works. Every time I have stood across from a pharmacist in a hospital and had a clinical conversation, I have been able to meet that person on their own ground. That matters. Medicine done well is a team sport, and understanding the next player's position makes you a better one yourself.</p>
+      <p>Pitt also gave me the confidence. That is the harder thing to measure, but it was probably the more important gift. I arrived in Pittsburgh as a kid from Bradford who was not entirely sure he belonged in a serious university. I left as someone who had been told, by his grades and by his professors and by a good job offer from a world-class institution, that he did. That confidence was what I needed to stand in front of the next door — the one in Philadelphia — and knock.</p>
+      <p>Hail to Pitt.</p>
+    </div>
+
+    <a class="back-link" href="index.html#essay">&larr; Back to The Long Way Here</a>
+
+  </div>
+
+  <footer>
+    <p><span>Dispatches from the Road</span> &nbsp;&middot;&nbsp; Tim O'Brien &nbsp;&middot;&nbsp; All photographs &amp; text &copy; Tim O'Brien</p>
+    <p style="margin-top:0.5rem; opacity:0.6;">Built with intention &nbsp;&middot;&nbsp; Avignon, France</p>
+    <p style="margin-top:0.5rem; opacity:0.6; font-style:italic;">Written by me and Anthropic</p>
+  </footer>
+
+</body>
+</html>
