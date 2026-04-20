@@ -225,6 +225,32 @@
     }
     .back-home a:hover { color: var(--sienna); border-color: var(--sienna); }
 
+    /* ── CONTINUE READING ── */
+    .continue-reading {
+      text-align: center;
+      padding: 3.5rem 1rem 1.5rem;
+      background: var(--cream);
+    }
+    .cr-eyebrow {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1.7rem;
+      color: var(--stone);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+    .cr-link {
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      color: var(--sienna);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .cr-link:hover { color: var(--warm-dark); border-color: var(--sienna); }
+
     /* ── FOOTER ── */
     footer {
       background: var(--warm-dark);
@@ -307,6 +333,11 @@
       </div>
     </div>
   </section>
+
+  <div class="continue-reading">
+    <p class="cr-eyebrow">The Same Boy, Decades Later</p>
+    <a class="cr-link" href="michael-patrick.html">Michael Patrick &amp; Yaamy Today &nbsp;&rarr;</a>
+  </div>
 
   <div class="back-home">
     <a href="index.html">&#8592; Portfolio Home</a>
