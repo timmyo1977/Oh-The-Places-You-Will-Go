@@ -203,26 +203,167 @@
       text-align: left;
       margin: 0;
     }
-    .links-section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .links-section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.8rem;
-      margin-top: 2.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 3rem 2.4rem;
+      margin-top: 3rem;
+      padding: 0 0.5rem;
     }
+
+    /* --- The Journeys as Doors --- */
     .link-card {
-      border: 1px solid var(--rule);
-      background: var(--parchment);
-      padding: 1.8rem;
+      /* Door proportions — taller than wide, like a real door */
+      aspect-ratio: 5 / 8;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.6rem 1.4rem 1.8rem;
       text-decoration: none;
       color: inherit;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-      display: block;
+      /* Rounded arch at the top, flat at the bottom — like an Avignon door */
+      border-radius: 50% 50% 4px 4px / 22% 22% 3% 3%;
+      /* Warm wood grain using sienna tones, with subtle vertical striations */
+      background:
+        linear-gradient(180deg,
+          rgba(0,0,0,0.08) 0%,
+          rgba(0,0,0,0) 8%,
+          rgba(0,0,0,0) 92%,
+          rgba(0,0,0,0.12) 100%),
+        repeating-linear-gradient(90deg,
+          rgba(90,40,20,0.04) 0px,
+          rgba(90,40,20,0.04) 2px,
+          rgba(90,40,20,0) 2px,
+          rgba(90,40,20,0) 7px),
+        linear-gradient(145deg, #9a4530 0%, #7a2f20 45%, #6a281b 100%);
+      /* Door frame: a lighter stone-colored outer ring, and inset shadow for depth */
+      box-shadow:
+        0 0 0 6px var(--parchment),
+        0 0 0 8px var(--rule),
+        inset 0 3px 14px rgba(0,0,0,0.35),
+        inset 0 -3px 10px rgba(0,0,0,0.25),
+        8px 10px 22px rgba(0,0,0,0.18);
+      transform-origin: left center;
+      transition: transform 0.45s cubic-bezier(.2,.7,.3,1),
+                  box-shadow 0.45s ease,
+                  filter 0.45s ease;
     }
-    .link-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: var(--gold); }
-    .link-card .card-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--rule); line-height: 1; margin-bottom: 0.8rem; }
-    .link-card h4 { font-family: 'Playfair Display', serif; font-size: 2.3rem; color: var(--warm-dark); margin-bottom: 0.4rem; }
-    .link-card p { font-size: 1.8rem; color: var(--stone); font-style: italic; }
+
+    /* Two recessed rectangular panels per door — classic paneled construction */
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 11%;
+      left: 14%;
+      right: 14%;
+      height: 34%;
+      border-radius: 50% 50% 4px 4px / 30% 30% 5% 5%;
+      border: 1px solid rgba(0,0,0,0.35);
+      box-shadow:
+        inset 0 2px 6px rgba(0,0,0,0.35),
+        inset 0 -1px 2px rgba(255,220,180,0.08),
+        0 1px 0 rgba(255,220,180,0.06);
+      pointer-events: none;
+    }
+    .link-card::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 14%;
+      right: 14%;
+      height: 28%;
+      border: 1px solid rgba(0,0,0,0.35);
+      box-shadow:
+        inset 0 2px 6px rgba(0,0,0,0.35),
+        inset 0 -1px 2px rgba(255,220,180,0.08),
+        0 1px 0 rgba(255,220,180,0.06);
+      pointer-events: none;
+    }
+
+    /* Brass doorknob — small circle on the right side, mid-height */
+    .door-knob {
+      position: absolute;
+      right: 10%;
+      top: 62%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%,
+        var(--gold-light) 0%,
+        var(--gold) 45%,
+        #6e5520 100%);
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.35),
+        0 2px 3px rgba(0,0,0,0.4),
+        inset 0 1px 1px rgba(255,240,200,0.6);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Door number — small brass plaque look, top center above the panels */
+    .link-card .card-num {
+      position: absolute;
+      top: 4.5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin: 0;
+      letter-spacing: 0.15em;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+
+    /* Title and caption sit on a "threshold plate" at the bottom of the door */
+    .link-card h4,
+    .link-card p {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .link-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+    }
+    .link-card p {
+      font-size: 1.25rem;
+      color: var(--rule);
+      font-style: italic;
+      line-height: 1.35;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    }
+
+    /* Hover: the door swings open on its hinges (left edge) */
+    .link-card:hover {
+      transform: perspective(1200px) rotateY(-14deg) translateX(-2px);
+      box-shadow:
+        0 0 0 6px var(--parchment),
+        0 0 0 8px var(--gold),
+        inset 0 3px 14px rgba(0,0,0,0.35),
+        inset 0 -3px 10px rgba(0,0,0,0.25),
+        18px 14px 32px rgba(0,0,0,0.28);
+      filter: brightness(1.05);
+    }
+    .link-card:hover .door-knob {
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.35),
+        0 0 10px rgba(212,176,106,0.6),
+        0 2px 3px rgba(0,0,0,0.4),
+        inset 0 1px 1px rgba(255,240,200,0.7);
+    }
+
+    /* The special Wills Eye card had custom inline flex content — keep it readable on the door */
+    .link-card img,
+    .link-card svg { position: relative; z-index: 2; }
     .placeholder-note { text-align: center; font-style: italic; color: var(--stone); font-size: 1.8rem; margin-top: 1.5rem; }
     footer {
       background: var(--warm-dark);
@@ -273,7 +414,7 @@
 
   <header class="masthead">
     <div class="site-title">Dispatches from the Road</div>
-    <div class="site-subtitle">A Traveller's Portfolio &nbsp;&middot;&nbsp; Tim O'Brien</div>
+    <div class="site-subtitle">Notes from a life well traveled &nbsp;&middot;&nbsp; Tim O'Brien</div>
   </header>
 
   <nav>
@@ -419,91 +560,104 @@
     <div class="center-rule"></div>
     <div class="links-grid">
       <a class="link-card" href="two-wheels.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">01</div>
         <h4>Two Wheels</h4>
         <p>A life on the bike — essays, rides, and the machine itself.</p>
       </a>
       <a class="link-card" href="palais-des-papes.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">02</div>
         <h4>Palais des Papes</h4>
         <p>Inside the greatest Gothic palace ever built — seat of seven popes.</p>
       </a>
       <a class="link-card" href="pierce-stocking.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">03</div>
         <h4>Pierce Stocking Drive</h4>
         <p>Cycling Sleeping Bear Dunes in the rain with Wilderness Voyagers.</p>
       </a>
       <a class="link-card" href="empire-state-ride.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">04</div>
         <h4>Empire State Ride</h4>
         <p>Cycling across New York State to end cancer.</p>
       </a>
       <a class="link-card" href="pine-valley.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">05</div>
         <h4>Pine Valley Golf Club</h4>
         <p>Trying to find the short grass at the world's greatest golf course.</p>
       </a>
       <a class="link-card" href="london.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">06</div>
         <h4>London</h4>
         <p>A pink door in Belgravia and a striped bag from Peggy Porschen.</p>
       </a>
       <a class="link-card" href="playa-del-carmen.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">07</div>
         <h4>Playa del Carmen</h4>
         <p>Footprints in the sand with Anna Christine on the Riviera Maya.</p>
       </a>
       <a class="link-card" href="turks-and-caicos.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">08</div>
         <h4>Turks &amp; Caicos</h4>
         <p>Father and son on the impossibly blue water of Grace Bay.</p>
       </a>
       <a class="link-card" href="mission-meadows.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">09</div>
         <h4>Mission Meadows</h4>
         <p>A summer evening at Lake Chautauqua with Michael Patrick O'Brien.</p>
       </a>
       <a class="link-card" href="chedwell-overlook.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">10</div>
         <h4>Chedwell Overlook</h4>
         <p>The cottage on Chautauqua Lake &mdash; west-facing, hydrangeas, sunsets.</p>
       </a>
       <a class="link-card" href="cataract-surgery.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">11</div>
         <h4>Cataract Surgery</h4>
         <p>The center of a professional life — restoring sight, one eye at a time.</p>
       </a>
       <a class="link-card" href="marriott-ranch.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">12</div>
         <h4>Marriott Ranch</h4>
         <p>A summer evening in Hume, Virginia — Blue Ridge light and horse country air.</p>
       </a>
       <a class="link-card" href="bu-law.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">13</div>
         <h4>BU Law</h4>
         <p>Kaitlin Elizabeth O'Brien earns her J.D. from Boston University School of Law.</p>
       </a>
-      <a class="link-card" href="wills-eye.html" style="position:relative;">
-        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.8rem;">
-          <img src="https://www.willseye.org/wp-content/uploads/2021/08/Seal_Red_cmyk_outline-750x750.jpg"
-               alt="Wills Eye Hospital Seal"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-               style="width:56px; height:56px; object-fit:contain; flex-shrink:0;" />
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="56" height="56" style="display:none; flex-shrink:0;">
-            <circle cx="50" cy="50" r="48" fill="none" stroke="#8b1a1a" stroke-width="3"/>
-            <circle cx="50" cy="50" r="38" fill="none" stroke="#8b1a1a" stroke-width="1"/>
-            <text x="50" y="30" text-anchor="middle" font-family="serif" font-size="7" fill="#8b1a1a" letter-spacing="2">WILLS EYE</text>
-            <text x="50" y="42" text-anchor="middle" font-family="serif" font-size="7" fill="#8b1a1a" letter-spacing="1">HOSPITAL</text>
-            <path d="M30 50 Q50 35 70 50 Q50 65 30 50Z" fill="none" stroke="#8b1a1a" stroke-width="1.5"/>
-            <circle cx="50" cy="50" r="4" fill="#8b1a1a"/>
-            <text x="50" y="70" text-anchor="middle" font-family="serif" font-size="5.5" fill="#8b1a1a" letter-spacing="1">EST. 1832</text>
-          </svg>
-          <div class="card-num" style="margin:0;">14</div>
-        </div>
+      <a class="link-card" href="wills-eye.html">
+        <span class="door-knob" aria-hidden="true"></span>
+        <div class="card-num">14</div>
+        <img src="https://www.willseye.org/wp-content/uploads/2021/08/Seal_Red_cmyk_outline-750x750.jpg"
+             alt="Wills Eye Hospital Seal"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+             style="width:42px; height:42px; object-fit:contain; display:block; margin:0 auto 0.5rem; position:relative; z-index:2; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="42" height="42" style="display:none; margin:0 auto 0.5rem; position:relative; z-index:2;">
+          <circle cx="50" cy="50" r="48" fill="none" stroke="#e8c574" stroke-width="3"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#e8c574" stroke-width="1"/>
+          <text x="50" y="30" text-anchor="middle" font-family="serif" font-size="7" fill="#e8c574" letter-spacing="2">WILLS EYE</text>
+          <text x="50" y="42" text-anchor="middle" font-family="serif" font-size="7" fill="#e8c574" letter-spacing="1">HOSPITAL</text>
+          <path d="M30 50 Q50 35 70 50 Q50 65 30 50Z" fill="none" stroke="#e8c574" stroke-width="1.5"/>
+          <circle cx="50" cy="50" r="4" fill="#e8c574"/>
+          <text x="50" y="70" text-anchor="middle" font-family="serif" font-size="5.5" fill="#e8c574" letter-spacing="1">EST. 1832</text>
+        </svg>
         <h4>Wills Eye</h4>
         <p>Nancy and Tim on the steps of their Philadelphia home during the Wills Eye Hospital residency.</p>
       </a>
       <a class="link-card" href="jefferson.html">
+        <span class="door-knob" aria-hidden="true"></span>
         <div class="card-num">15</div>
         <h4>Jefferson Medical College</h4>
         <p>Four years in Philadelphia learning to heal at one of America's oldest medical schools.</p>
