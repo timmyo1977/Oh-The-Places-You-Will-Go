@@ -227,6 +227,39 @@
     }
     .back-home a:hover { color: var(--sienna); border-color: var(--sienna); }
 
+    /* ── CROSS-LINK (companion chapter) ── */
+    .companion-link {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem 2rem;
+      text-align: center;
+    }
+    .companion-link a {
+      display: inline-block;
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1.75rem;
+      color: var(--sienna);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-light);
+      padding-bottom: 3px;
+      letter-spacing: 0.03em;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .companion-link a:hover {
+      color: var(--warm-dark);
+      border-bottom-color: var(--sienna);
+    }
+    .companion-link .prefix {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--warm-dark);
@@ -309,6 +342,11 @@
       </div>
     </div>
   </section>
+
+  <div class="companion-link">
+    <span class="prefix">A Companion Chapter</span>
+    <a href="timothy-jr.html">Timothy James O'Brien Jr. &nbsp;&rarr;</a>
+  </div>
 
   <div class="back-home">
     <a href="index.html">&#8592; Portfolio Home</a>
