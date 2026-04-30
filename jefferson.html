@@ -559,6 +559,23 @@
     /* FADE IN */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
+
+    /* MOBILE OVERRIDES */
+    @media (max-width: 700px) {
+      nav { display: none; }
+      .history { padding: 4rem 1.5rem 2rem; }
+      .savacool { padding: 4rem 1.5rem 4rem; }
+      .section-title { font-size: clamp(2.4rem, 7vw, 3.4rem); }
+      .section-label { font-size: 1.3rem; }
+      .history-block h3 { font-size: 1.7rem; }
+      .history-block p { font-size: 1.4rem; line-height: 1.6; }
+      .essay p { font-size: 1.5rem; line-height: 1.75; }
+      .pull-quote p { font-size: 1.7rem; line-height: 1.4; }
+      .hero-eyebrow { font-size: 1.3rem; }
+      .hero-headline { font-size: clamp(2.6rem, 8vw, 3.8rem); }
+      .hero-text p { font-size: 1.5rem; line-height: 1.7; }
+      .caption-tag { font-size: 1.3rem; }
+    }
   </style>
 </head>
 <body>
