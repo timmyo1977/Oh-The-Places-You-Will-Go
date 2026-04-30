@@ -121,7 +121,7 @@
       margin-top: 1rem;
     }
     .hero-eyebrow {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--sienna);
@@ -129,7 +129,7 @@
     }
     .hero-headline {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
       line-height: 1.18;
       color: var(--warm-dark);
       margin-bottom: 1.2rem;
@@ -141,9 +141,10 @@
       margin: 1.4rem 0;
     }
     .hero-text p {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       color: #3a3028;
       margin-bottom: 1rem;
+      line-height: 1.7;
     }
 
     .history {
@@ -182,19 +183,19 @@
     }
     .history-block h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.9rem;
+      font-size: 1.6rem;
       color: var(--gold-light);
       margin-bottom: 0.6rem;
       border-bottom: 1px solid rgba(212,176,106,0.25);
       padding-bottom: 0.4rem;
     }
     .history-block p {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
       color: #d8cfc4;
-      line-height: 1.8;
+      line-height: 1.6;
     }
     .essay p {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       color: #cec6ba;
       margin-bottom: 1.4rem;
       max-width: 820px;
@@ -209,7 +210,7 @@
     }
     .pull-quote p {
       font-style: italic;
-      font-size: 2rem !important;
+      font-size: 1.6rem !important;
       color: var(--gold-light) !important;
       line-height: 1.6;
     }
@@ -220,7 +221,7 @@
     }
     .back-home a {
       font-family: 'EB Garamond', serif;
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--warm-dark);
@@ -236,28 +237,13 @@
       color: var(--stone);
       text-align: center;
       padding: 2.5rem 1rem;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       border-top: 2px solid var(--gold);
     }
     footer span { color: var(--gold-light); }
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; gap: 2.5rem; min-height: auto; }
-    }
-
-    /* Phone-specific font scaling — keeps desktop look intact */
-    @media (max-width: 600px) {
-      .hero-eyebrow      { font-size: 1.1rem; }
-      .hero-headline     { font-size: clamp(2rem, 7vw, 2.8rem); }
-      .hero-text p       { font-size: 1.4rem; line-height: 1.7; }
-      .section-eyebrow   { font-size: 1.1rem; }
-      .section-title     { font-size: clamp(2rem, 7vw, 2.8rem); }
-      .history-block h3  { font-size: 1.5rem; }
-      .history-block p   { font-size: 1.4rem; line-height: 1.7; }
-      .essay p           { font-size: 1.45rem; line-height: 1.75; }
-      .essay blockquote  { font-size: 1.5rem; }
-      .placeholder-note  { font-size: 1.3rem; }
-      footer             { font-size: 1.2rem; }
     }
   </style>
 </head>
