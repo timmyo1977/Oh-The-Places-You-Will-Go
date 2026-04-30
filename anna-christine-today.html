@@ -244,6 +244,21 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; gap: 2.5rem; min-height: auto; }
     }
+
+    /* Phone-specific font scaling — keeps desktop look intact */
+    @media (max-width: 600px) {
+      .hero-eyebrow      { font-size: 1.1rem; }
+      .hero-headline     { font-size: clamp(2rem, 7vw, 2.8rem); }
+      .hero-text p       { font-size: 1.4rem; line-height: 1.7; }
+      .section-eyebrow   { font-size: 1.1rem; }
+      .section-title     { font-size: clamp(2rem, 7vw, 2.8rem); }
+      .history-block h3  { font-size: 1.5rem; }
+      .history-block p   { font-size: 1.4rem; line-height: 1.7; }
+      .essay p           { font-size: 1.45rem; line-height: 1.75; }
+      .essay blockquote  { font-size: 1.5rem; }
+      .placeholder-note  { font-size: 1.3rem; }
+      footer             { font-size: 1.2rem; }
+    }
   </style>
 </head>
 <body>
