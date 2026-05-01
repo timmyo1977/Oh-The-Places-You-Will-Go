@@ -561,9 +561,11 @@
     .fade-in.visible { opacity: 1; transform: none; }
 
     /* MOBILE OVERRIDES */
-    @media (max-width: 700px) {
-      nav { display: none; }
-      .history { padding: 4rem 1.5rem 2rem; }
+    @media (max-width: 900px) {
+      nav { display: none !important; }
+      .history { padding: 4rem 1.5rem 1rem !important; }
+      #reflections-section { padding-bottom: 0 !important; }
+      .essay p:last-child { margin-bottom: 0 !important; }
       .savacool { padding: 4rem 1.5rem 4rem; }
       .section-title { font-size: clamp(2.4rem, 7vw, 3.4rem); }
       .section-label { font-size: 1.3rem; }
