@@ -23,7 +23,7 @@
       background: var(--cream);
       color: var(--ink);
       font-family: 'EB Garamond', Georgia, serif;
-      font-size: clamp(16px, 1.2vw + 12px, 27px);
+      font-size: clamp(14px, 0.6vw + 12px, 19px);
       line-height: 1.75;
     }
 
@@ -45,7 +45,7 @@
     }
     .site-title {
       font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(3.2rem, 8vw, 5.6rem);
+      font-size: clamp(2.2rem, 6vw, 4rem);
       color: var(--gold-light);
       letter-spacing: 0.08em;
       text-shadow: 0 2px 12px rgba(0,0,0,0.5);
@@ -54,7 +54,7 @@
       font-family: 'EB Garamond', serif;
       font-style: italic;
       color: var(--rule);
-      font-size: 2rem;
+      font-size: 1.4rem;
       margin-top: 0.4rem;
       letter-spacing: 0.12em;
     }
@@ -70,9 +70,12 @@
       z-index: 100;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
+    @media (max-width: 700px) {
+      nav { display: none; }
+    }
     nav a {
       font-family: 'EB Garamond', serif;
-      font-size: 1.9rem;
+      font-size: 1.3rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--warm-dark);
