@@ -23,7 +23,7 @@
       background: var(--cream);
       color: var(--ink);
       font-family: 'EB Garamond', Georgia, serif;
-      font-size: clamp(16px, 1.2vw + 12px, 27px);
+      font-size: clamp(14px, 0.6vw + 12px, 19px);
       line-height: 1.75;
     }
 
@@ -45,7 +45,7 @@
     }
     .site-title {
       font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(3.2rem, 8vw, 5.6rem);
+      font-size: clamp(2.2rem, 6vw, 4rem);
       color: var(--gold-light);
       letter-spacing: 0.08em;
       text-shadow: 0 2px 12px rgba(0,0,0,0.5);
@@ -54,13 +54,16 @@
       font-family: 'EB Garamond', serif;
       font-style: italic;
       color: var(--rule);
-      font-size: 2rem;
+      font-size: 1.4rem;
       margin-top: 0.4rem;
       letter-spacing: 0.12em;
     }
 
-    /* NAV */
+    /* NAV (hidden) */
     nav {
+      display: none;
+    }
+    nav-original-styles {
       background: var(--parchment);
       border-bottom: 2px solid var(--rule);
       text-align: center;
@@ -72,7 +75,7 @@
     }
     nav a {
       font-family: 'EB Garamond', serif;
-      font-size: 1.9rem;
+      font-size: 1.3rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--warm-dark);
@@ -114,7 +117,7 @@
     .caption-tag {
       font-family: 'EB Garamond', serif;
       font-style: italic;
-      font-size: 1.7rem;
+      font-size: 1.2rem;
       color: var(--stone);
       margin-top: 0.9rem;
       text-align: center;
@@ -132,7 +135,7 @@
       .hero-text { grid-template-columns: 1fr; }
     }
     .hero-eyebrow {
-      font-size: 1.56rem;
+      font-size: 1.15rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
@@ -140,7 +143,7 @@
     }
     .hero-headline {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4vw, 4rem);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
       line-height: 1.2;
       color: var(--warm-dark);
       margin-bottom: 1.2rem;
@@ -163,7 +166,7 @@
     }
     .content-inner { max-width: 960px; margin: 0 auto; }
     .section-label {
-      font-size: 1.56rem;
+      font-size: 1.1rem;
       letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--gold);
@@ -172,7 +175,7 @@
     }
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3.4rem, 6vw, 5.2rem);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
       text-align: center;
       color: var(--warm-dark);
       margin-bottom: 0.5rem;
@@ -189,18 +192,18 @@
     @media (max-width: 700px) { .info-grid { grid-template-columns: 1fr; } }
     .info-block h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.3rem;
+      font-size: 1.6rem;
       color: var(--sienna);
       margin-bottom: 0.5rem;
       padding-bottom: 0.3rem;
       border-bottom: 1px solid var(--rule);
     }
-    .info-block p { font-size: 2rem; color: #2d3d2a; line-height: 1.8; }
+    .info-block p { font-size: 1.4rem; color: #2d3d2a; line-height: 1.8; }
 
     /* ESSAY */
     .essay { max-width: 960px; margin: 0 auto; }
     .essay p {
-      font-size: 2.1rem;
+      font-size: 1.45rem;
       color: #2d3d2a;
       margin-bottom: 1.3rem;
       line-height: 1.85;
@@ -208,7 +211,7 @@
     }
     .essay p:first-child::first-letter {
       font-family: 'Playfair Display', serif;
-      font-size: 8.4rem;
+      font-size: 5.4rem;
       float: left;
       line-height: 0.78;
       margin: 0.08em 0.1em 0 0;
@@ -223,7 +226,7 @@
     .pull-quote p {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 2.5rem;
+      font-size: 1.7rem;
       color: var(--warm-dark);
       text-align: left;
       margin: 0;
@@ -240,7 +243,7 @@
     }
     .route-box h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 1.7rem;
       color: var(--gold-light);
       margin-bottom: 1.2rem;
       border-bottom: 1px solid rgba(143,192,90,0.3);
@@ -251,7 +254,7 @@
       padding: 0;
     }
     .route-box ul li {
-      font-size: 1.9rem;
+      font-size: 1.35rem;
       padding: 0.4rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       display: flex;
@@ -270,7 +273,7 @@
       text-align: center;
       padding: 2.5rem 1rem;
       font-family: 'EB Garamond', serif;
-      font-size: 1.76rem;
+      font-size: 1.2rem;
       letter-spacing: 0.08em;
     }
     footer span { color: var(--gold-light); }
@@ -362,7 +365,7 @@
       <!-- WILDERNESS VOYAGERS -->
       <div id="voyagers" style="margin-top: 4rem;">
         <p class="section-label" style="text-align:left; margin-bottom:0.5rem;">The Outfitter</p>
-        <h3 style="font-family:'Playfair Display',serif; font-size:clamp(2.8rem,4vw,4rem); color:var(--warm-dark); margin-bottom:2rem;">Wilderness <em style="color:var(--sienna);">Voyagers</em></h3>
+        <h3 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,3vw,2.8rem); color:var(--warm-dark); margin-bottom:2rem;">Wilderness <em style="color:var(--sienna);">Voyagers</em></h3>
 
         <div class="info-grid">
           <div class="info-block">
