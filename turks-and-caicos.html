@@ -270,6 +270,24 @@
       border-top: 2px solid var(--gold);
     }
     footer span { color: var(--gold-light); }
+    /* MOBILE OVERRIDES */
+    @media (max-width: 900px) {
+      nav { display: none !important; }
+      .history { padding: 4rem 1.5rem 2rem !important; }
+      .savacool { padding: 3rem 1.5rem 3rem !important; }
+      .section-title { font-size: clamp(2.4rem, 7vw, 3.4rem); }
+      .section-label { font-size: 1.3rem; }
+      .history-block h3 { font-size: 1.7rem; }
+      .history-block p { font-size: 1.4rem; line-height: 1.6; }
+      .essay p { font-size: 1.5rem; line-height: 1.75; }
+      .pull-quote p { font-size: 1.7rem !important; line-height: 1.4; }
+      .hero-eyebrow { font-size: 1.3rem; }
+      .hero-headline { font-size: clamp(2.6rem, 8vw, 3.8rem); }
+      .hero-text p { font-size: 1.5rem !important; line-height: 1.7; }
+      .caption-tag { font-size: 1.3rem; }
+      .back-home a { font-size: 1.4rem !important; }
+      footer { font-size: 1.3rem !important; }
+    }
   </style>
 </head>
 <body>
