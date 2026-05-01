@@ -534,7 +534,14 @@
     }
     /* MOBILE OVERRIDES */
     @media (max-width: 900px) {
-      nav { display: none !important; }
+      nav,
+      body > nav,
+      header + nav { 
+        display: none !important; 
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+      }
     }
   </style>
 </head>
