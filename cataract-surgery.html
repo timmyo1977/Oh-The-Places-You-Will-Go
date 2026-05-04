@@ -234,6 +234,38 @@
       border-top: 2px solid var(--gold);
     }
     footer span { color: var(--gold-light); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 700px) {
+      body { font-size: 17px; line-height: 1.7; }
+      nav { display: none; }
+      .masthead { padding: 1.8rem 1rem 1.4rem; }
+      .site-title { font-size: 2.4rem; letter-spacing: 0.06em; }
+      .site-subtitle { font-size: 1rem; letter-spacing: 0.1em; }
+
+      .hero-photo-wrap img { max-height: 60vh; }
+      .caption-tag { font-size: 0.95rem; padding: 0.7rem 1rem; }
+      .hero-text { padding: 2.5rem 1.4rem 2rem; }
+      .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.18em; }
+      .hero-headline { font-size: 2.4rem; line-height: 1.2; margin-bottom: 1rem; }
+      .hero-text p { font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem; }
+
+      .history { padding: 2.8rem 1.3rem; }
+      .section-label { font-size: 0.85rem; letter-spacing: 0.2em; }
+      .section-title { font-size: 2rem; line-height: 1.2; }
+      .center-rule { margin: 0.8rem auto 1.8rem; }
+      .history-grid { gap: 1.6rem; margin-bottom: 2rem; }
+      .history-block h3 { font-size: 1.25rem; margin-bottom: 0.4rem; }
+      .history-block p { font-size: 1.02rem; line-height: 1.65; }
+      .essay { padding-top: 1.8rem; }
+      .essay p { font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem; }
+      .pull-quote { padding: 0.4rem 0 0.4rem 1.1rem; margin: 0 0 1.4rem 0; }
+      .pull-quote p { font-size: 1.15rem !important; line-height: 1.5; }
+
+      .back-home { padding: 2rem 1rem; }
+      .back-home a { font-size: 1rem; }
+      footer { padding: 1.8rem 1rem; font-size: 0.85rem; }
+    }
   </style>
 </head>
 <body>
