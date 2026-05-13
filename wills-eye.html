@@ -81,6 +81,70 @@
       transition: color 0.2s, border-color 0.2s;
     }
     nav a:hover { color: var(--sienna); border-bottom-color: var(--sienna); }
+    .nav-links { display: inline; }
+
+    /* Mobile menu — hidden on desktop */
+    .nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
+    .nav-toggle-label {
+      display: none;
+      cursor: pointer;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm-dark);
+      padding: 0.3rem 1rem;
+      user-select: none;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .nav-toggle-label .bars {
+      display: inline-block;
+      width: 22px;
+      height: 16px;
+      position: relative;
+    }
+    .nav-toggle-label .bars::before,
+    .nav-toggle-label .bars::after,
+    .nav-toggle-label .bars span {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--warm-dark);
+      transition: transform 0.25s, opacity 0.2s, top 0.25s;
+    }
+    .nav-toggle-label .bars::before { top: 0; }
+    .nav-toggle-label .bars span    { top: 7px; }
+    .nav-toggle-label .bars::after  { top: 14px; }
+    /* Animate to X when open */
+    .nav-toggle:checked ~ .nav-toggle-label .bars::before { top: 7px; transform: rotate(45deg); }
+    .nav-toggle:checked ~ .nav-toggle-label .bars span    { opacity: 0; }
+    .nav-toggle:checked ~ .nav-toggle-label .bars::after  { top: 7px; transform: rotate(-45deg); }
+
+    @media (max-width: 720px) {
+      nav {
+        padding: 0.5rem 1rem;
+        text-align: left;
+      }
+      .nav-toggle-label { display: inline-flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        padding: 0.4rem 0 0.6rem;
+        border-top: 1px solid var(--rule);
+        margin-top: 0.5rem;
+      }
+      .nav-toggle:checked ~ .nav-links { display: flex; }
+      .nav-links a {
+        display: block;
+        margin: 0;
+        padding: 0.7rem 0.5rem;
+        font-size: 1.6rem;
+        text-align: left;
+      }
+    }
 
     .page-hero {
       max-width: 1100px;
@@ -342,10 +406,17 @@
   </header>
 
   <nav>
-    <a href="index.html#story">The Story</a>
-    <a href="index.html#history">History</a>
-    <a href="index.html#journeys">Journeys</a>
-    <a href="index.html#contact">Contact</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">
+      <span class="bars"><span></span></span>
+      <span>Menu</span>
+    </label>
+    <div class="nav-links">
+      <a href="index.html#story">The Story</a>
+      <a href="index.html#history">History</a>
+      <a href="index.html#journeys">Journeys</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
   </nav>
 
   <section class="hero-split">
