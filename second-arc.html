@@ -365,6 +365,81 @@
       .hero { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-photo-wrap { max-width: 440px; }
     }
+  .arc-doors { --lacquer-hi:#f58a34; --lacquer:#e0631c; --lacquer-lo:#a83a0b; }
+  /* ===== ARC DOORS — copy from here to END ARC DOORS ===== */
+  .arc-doors {
+    background: radial-gradient(ellipse at 50% 0%, #3a2a1c 0%, var(--warm-dark) 70%);
+    padding: 90px 24px 110px;
+    color: var(--cream);
+  }
+  .arc-doors-inner { max-width: 1180px; margin: 0 auto; }
+  .arc-doors .ad-label {
+    font-family: 'Cinzel Decorative', serif; font-size: 15px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold-light); text-align: center;
+  }
+  .arc-doors .ad-title {
+    font-family: 'Playfair Display', serif; font-weight: 400; font-size: 54px;
+    text-align: center; margin: 14px 0 0; line-height: 1.15;
+  }
+  .arc-doors .ad-title em { color: var(--lacquer-hi); }
+  .arc-doors .ad-rule {
+    width: 120px; height: 2px; margin: 26px auto 22px;
+    background: linear-gradient(90deg, transparent, var(--lacquer), transparent);
+  }
+  .arc-doors .ad-intro {
+    font-size: 24px; line-height: 1.6; font-style: italic; color: var(--rule);
+    text-align: center; max-width: 720px; margin: 0 auto 64px;
+  }
+  .ad-grid {
+    display: grid; justify-content: center; gap: 56px 40px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 270px));
+  }
+  .ad-door { display: block; text-decoration: none; color: inherit; text-align: center; }
+  .ad-frame {
+    position: relative; width: 100%; max-width: 250px; margin: 0 auto;
+    aspect-ratio: 200 / 320;
+    transition: transform .45s ease, filter .45s ease;
+    filter: drop-shadow(0 18px 26px rgba(0,0,0,.45));
+  }
+  .ad-frame svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .ad-door:nth-child(even) .ad-frame svg { transform: scaleX(-1); }
+  .ad-door:hover .ad-frame, .ad-door:focus-visible .ad-frame {
+    transform: translateY(-8px);
+    filter: drop-shadow(0 26px 34px rgba(0,0,0,.55)) drop-shadow(0 0 22px rgba(245,138,52,.45));
+  }
+  .ad-door:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 10px; border-radius: 6px; }
+
+  .ad-num {
+    font-family: 'Cinzel Decorative', serif; font-size: 13px; letter-spacing: 0.25em;
+    color: var(--gold-light); margin-top: 26px;
+  }
+  .ad-name {
+    font-family: 'Playfair Display', serif; font-style: italic; font-size: 30px;
+    line-height: 1.2; margin-top: 6px; color: var(--cream);
+    transition: color .3s;
+  }
+  .ad-door:hover .ad-name { color: var(--lacquer-hi); }
+  .ad-line {
+    font-size: 19px; line-height: 1.5; color: var(--stone);
+    max-width: 250px; margin: 8px auto 0;
+  }
+  .ad-door.ad-future .ad-frame { opacity: .9; }
+  .ad-door.ad-empty .ad-frame { opacity: .35; filter: grayscale(.4); }
+  .ad-door.ad-empty:hover .ad-frame { transform: none; }
+  .ad-door.ad-future .ad-num::after { content: " · still to come"; }
+
+  @media (max-width: 600px) {
+    .arc-doors { padding: 64px 16px 80px; }
+    .arc-doors .ad-title { font-size: 38px; }
+    .arc-doors .ad-intro { font-size: 20px; margin-bottom: 44px; }
+    .ad-grid { grid-template-columns: 1fr 1fr; gap: 40px 18px; }
+    .ad-name { font-size: 22px; }
+    .ad-line { font-size: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ad-frame { transition: none; }
+  }
+  /* ===== END ARC DOORS ===== */
   </style>
 </head>
 <body>
@@ -440,6 +515,80 @@
     </div>
   </section>
 
+<!-- ===== ARC DOORS — copy from here to END ARC DOORS ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="adLacquer" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f58a34"/>
+      <stop offset=".55" stop-color="#e0631c"/>
+      <stop offset="1" stop-color="#a83a0b"/>
+    </linearGradient>
+    <radialGradient id="adBloom" cx=".5" cy=".38" r=".6">
+      <stop offset="0" stop-color="#ffd2a1" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#ffd2a1" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="adGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.2"/>
+    </filter>
+    <clipPath id="adShape">
+      <path d="M8 320 V104 A92 92 0 0 1 192 104 V320 Z"/>
+    </clipPath>
+    <g id="adDoor">
+      <!-- frame -->
+      <path d="M0 320 V100 A100 100 0 0 1 200 100 V320" fill="none" stroke="#b8963e" stroke-width="2"/>
+      <g clip-path="url(#adShape)">
+        <rect width="200" height="320" fill="url(#adLacquer)"/>
+        <rect width="200" height="320" fill="url(#adBloom)"/>
+        <g>
+          <!-- soft glow under each curve of light -->
+          <g filter="url(#adGlow)" stroke="#fff3df" stroke-width="7" fill="none" opacity=".75">
+            <path d="M-30 330 C 10 120, 120 40, 230 70"/>
+            <path d="M-30 300 C 30 170, 140 120, 230 160"/>
+            <path d="M40 340 C 70 250, 150 210, 230 240"/>
+          </g>
+          <g stroke="#fffaf2" stroke-width="2.4" fill="none" stroke-linecap="round">
+            <path d="M-30 330 C 10 120, 120 40, 230 70"/>
+            <path d="M-30 300 C 30 170, 140 120, 230 160"/>
+            <path d="M40 340 C 70 250, 150 210, 230 240"/>
+          </g>
+        </g>
+        <!-- floor line like the terrazzo -->
+        <rect y="306" width="200" height="14" fill="#7a2c08" opacity=".55"/>
+      </g>
+      <!-- brass knob -->
+      <circle cx="166" cy="200" r="5.5" fill="#d4b06a" stroke="#8a6a24" stroke-width="1.2"/>
+    </g>
+  </defs>
+</svg>
+
+<section class="arc-doors" id="roads-ahead">
+  <div class="arc-doors-inner">
+    <p class="ad-label">Roads Ahead</p>
+    <h2 class="ad-title">Doors on the <em>Second Arc</em></h2>
+    <div class="ad-rule"></div>
+    <p class="ad-intro">The red doors were closed until I knocked. These stand open and lit &mdash; one for each trip of the second arc.</p>
+
+    <div class="ad-grid">
+
+      <a class="ad-door ad-future" href="https://chaseafricasafaris.com/your-journey-starts-here" target="_blank" rel="noopener">
+        <div class="ad-frame"><svg viewBox="0 0 200 320" role="img" aria-label="Orange arc door"><use href="#adDoor"/></svg></div>
+        <p class="ad-num">Africa</p>
+        <h3 class="ad-name">Safari</h3>
+        <p class="ad-line">Chase Africa Safaris &mdash; the first trip of the second arc.</p>
+      </a>
+
+      <div class="ad-door ad-empty" aria-hidden="true">
+        <div class="ad-frame"><svg viewBox="0 0 200 320"><use href="#adDoor"/></svg></div>
+        <p class="ad-num">Next</p>
+        <h3 class="ad-name">Still Unwritten</h3>
+        <p class="ad-line">A door for wherever comes next.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== END ARC DOORS ===== -->
+
   <section class="lens" id="photography">
     <div class="lens-inner">
       <p class="section-label">Photography</p>
@@ -474,26 +623,6 @@
     </div>
   </section>
 
-  <section class="ahead" id="roads-ahead">
-    <div class="ahead-inner">
-      <p class="section-label">Roads Ahead</p>
-      <h2 class="section-title">Places Still <em>to Go</em></h2>
-      <div class="center-rule"></div>
-      <p class="ahead-intro">Some journeys are already on the map; others are still only a name and a link. These are the ones I am reading about now.</p>
-      <ul class="ahead-list">
-        <li>
-          <a href="https://chaseafricasafaris.com/your-journey-starts-here" target="_blank" rel="noopener">
-            <div>
-              <p class="ahead-place">Africa</p>
-              <p class="ahead-name">Chase Africa Safaris</p>
-              <p class="ahead-note">Private and photographic safaris across eastern and southern Africa &mdash; Kenya, Tanzania, Botswana and beyond.</p>
-            </div>
-            <span class="ahead-arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
 
   <div class="back-home">
     <a href="index.html">&#8592; Portfolio Home</a>
