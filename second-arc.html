@@ -391,8 +391,8 @@
     text-align: center; max-width: 720px; margin: 0 auto 64px;
   }
   .ad-grid {
-    display: grid; justify-content: center; gap: 56px 40px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 270px));
+    display: grid; justify-content: center; gap: 56px 32px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
   }
   .ad-door { display: block; text-decoration: none; color: inherit; text-align: center; }
   .ad-frame {
@@ -570,12 +570,26 @@
 
     <div class="ad-grid">
 
+      <div class="ad-door ad-future">
+        <div class="ad-frame"><svg viewBox="0 0 200 320" role="img" aria-label="Orange arc door"><use href="#adDoor"/></svg></div>
+        <p class="ad-num">Arizona</p>
+        <h3 class="ad-name">Desert Gravel &amp; Golf</h3>
+        <p class="ad-line">February in the desert &mdash; gravel rides and golf in the sun.</p>
+      </div>
+
       <a class="ad-door ad-future" href="https://chaseafricasafaris.com/your-journey-starts-here" target="_blank" rel="noopener">
         <div class="ad-frame"><svg viewBox="0 0 200 320" role="img" aria-label="Orange arc door"><use href="#adDoor"/></svg></div>
         <p class="ad-num">Africa</p>
         <h3 class="ad-name">Safari</h3>
-        <p class="ad-line">Chase Africa Safaris &mdash; the first trip of the second arc.</p>
+        <p class="ad-line">Chase Africa Safaris &mdash; private and photographic safaris.</p>
       </a>
+
+      <div class="ad-door ad-future">
+        <div class="ad-frame"><svg viewBox="0 0 200 320" role="img" aria-label="Orange arc door"><use href="#adDoor"/></svg></div>
+        <p class="ad-num">Antarctica</p>
+        <h3 class="ad-name">The White Continent</h3>
+        <p class="ad-line">The bottom of the world, and the farthest door yet.</p>
+      </div>
 
       <div class="ad-door ad-empty" aria-hidden="true">
         <div class="ad-frame"><svg viewBox="0 0 200 320"><use href="#adDoor"/></svg></div>
