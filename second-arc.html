@@ -333,6 +333,34 @@
     .lens-cta a:hover { background: var(--ember); color: #fff; }
     .lens-cta p { font-size: 1.2rem; color: var(--stone); margin-top: 0.8rem; font-style: italic; }
 
+
+    .ahead {
+      background: var(--ember-dark);
+      color: var(--parchment);
+      padding: 6rem 2rem 5rem;
+      border-top: 3px solid var(--ember);
+    }
+    .ahead-inner { max-width: 900px; margin: 0 auto; }
+    .ahead-intro {
+      max-width: 760px; margin: 0 auto 3rem; text-align: center;
+      font-size: 1.5rem; color: #d8cfc4; line-height: 1.7;
+    }
+    .ahead-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(200,80,30,0.45); }
+    .ahead-list li { border-bottom: 1px solid rgba(200,80,30,0.45); }
+    .ahead-list a {
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1.5rem;
+      padding: 1.8rem 0.4rem; text-decoration: none; color: inherit;
+      transition: background 0.2s;
+    }
+    .ahead-list a:hover { background: rgba(200,80,30,0.12); }
+    .ahead-place {
+      font-size: 1.1rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--stone); margin-bottom: 0.3rem;
+    }
+    .ahead-name { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--gold-light); }
+    .ahead-note { font-size: 1.3rem; color: #cec6ba; line-height: 1.55; margin-top: 0.4rem; }
+    .ahead-arrow { font-size: 2rem; color: var(--gold); }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-photo-wrap { max-width: 440px; }
@@ -443,6 +471,27 @@
         <a href="https://eyes1.smugmug.com/" target="_blank" rel="noopener">Visit the Photography Gallery &rarr;</a>
         <p>Past work and new &mdash; added as it is made</p>
       </div>
+    </div>
+  </section>
+
+  <section class="ahead" id="roads-ahead">
+    <div class="ahead-inner">
+      <p class="section-label">Roads Ahead</p>
+      <h2 class="section-title">Places Still <em>to Go</em></h2>
+      <div class="center-rule"></div>
+      <p class="ahead-intro">Some journeys are already on the map; others are still only a name and a link. These are the ones I am reading about now.</p>
+      <ul class="ahead-list">
+        <li>
+          <a href="https://chaseafricasafaris.com/your-journey-starts-here" target="_blank" rel="noopener">
+            <div>
+              <p class="ahead-place">Africa</p>
+              <p class="ahead-name">Chase Africa Safaris</p>
+              <p class="ahead-note">Private and photographic safaris across eastern and southern Africa &mdash; Kenya, Tanzania, Botswana and beyond.</p>
+            </div>
+            <span class="ahead-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 
