@@ -439,6 +439,18 @@
   @media (prefers-reduced-motion: reduce) {
     .ad-frame { transition: none; }
   }
+  .ad-door-link { display: block; text-decoration: none; color: inherit; }
+  .ad-door-link:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 10px; border-radius: 6px; }
+  .ad-extra {
+    display: inline-block; margin-top: 18px; padding: 8px 18px;
+    font-family: 'Cinzel Decorative', serif; font-size: 12px; letter-spacing: 0.18em;
+    color: var(--gold-light); text-decoration: none;
+    border: 1px solid rgba(245,138,52,.55); border-radius: 999px;
+    transition: color .3s, border-color .3s, background .3s;
+  }
+  .ad-extra:hover, .ad-extra:focus-visible {
+    color: var(--cream); border-color: var(--lacquer-hi); background: rgba(224,99,28,.18);
+  }
   /* ===== END ARC DOORS ===== */
   </style>
 </head>
@@ -577,12 +589,15 @@
         <p class="ad-line">February in the desert &mdash; gravel rides and golf in the sun.</p>
       </div>
 
-      <a class="ad-door ad-future" href="https://chaseafricasafaris.com/your-journey-starts-here" target="_blank" rel="noopener">
-        <div class="ad-frame"><svg viewBox="0 0 200 320" role="img" aria-label="Orange arc door"><use href="#adDoor"/></svg></div>
-        <p class="ad-num">Africa</p>
-        <h3 class="ad-name">Safari</h3>
-        <p class="ad-line">Chase Africa Safaris &mdash; private and photographic safaris.</p>
-      </a>
+      <div class="ad-door ad-future">
+        <a class="ad-door-link" href="https://chaseafricasafaris.com/your-journey-starts-here" target="_blank" rel="noopener">
+          <div class="ad-frame"><svg viewBox="0 0 200 320" role="img" aria-label="Orange arc door"><use href="#adDoor"/></svg></div>
+          <p class="ad-num">Africa</p>
+          <h3 class="ad-name">Safari</h3>
+          <p class="ad-line">Chase Africa Safaris &mdash; private and photographic safaris.</p>
+        </a>
+        <a class="ad-extra" href="https://wetu.com/ItineraryOutputs/Discovery/201af441-48d0-4c1f-8b60-c0a9d73fbbe4" target="_blank" rel="noopener">View the Safari Itinerary &rarr;</a>
+      </div>
 
       <div class="ad-door ad-future">
         <div class="ad-frame"><svg viewBox="0 0 200 320" role="img" aria-label="Orange arc door"><use href="#adDoor"/></svg></div>
